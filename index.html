@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BadminVerse - Badminton & Basketball Court Booker</title>
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="header" data-header>
+
+        <div class="overlay" data-overlay></div>
+
+        <div class="header-top">
+            <div class="container">
+                <ul class="header-top-list">
+                    <li>
+                        <a href="mailto:info@badminverse.com" class="header-top-link">
+                            <ion-icon name="mail-outline"></ion-icon>
+
+                            <span>info@badminverse.com</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://maps.app.goo.gl/pQht82Tqf8Voe7cq5" class="header-top-link">
+                            <ion-icon name="location-outline"></ion-icon>
+
+                            <address>District 7, Ho Chi Minh City, Vietnam</address>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="wrapper">
+                    <ul class="header-top-social-list">
+                        <li>
+                            <a href="https://www.facebook.com/" class="header-top-social-link">
+                                <ion-icon name="logo-facebook"></ion-icon>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="https://twitter.com/" class="header-top-social-link">
+                                <ion-icon name="logo-twitter"></ion-icon>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="https://www.instagram.com/" class="header-top-social-link">
+                                <ion-icon name="logo-instagram"></ion-icon>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="https://www.pinterest.com/" class="header-top-social-link">
+                                <ion-icon name="logo-pinterest"></ion-icon>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <button class="header-top-btn">Add Listing</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="bookingModal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeBookingModal()">&times;</span>
+                <h2  style="margin-bottom: 20px">Book Your Court</h2>
+                <form id="bookingForm">
+                    <label for="court">Select Court:</label>
+                    <select id="court" name="court" required>
+                        <option value="">Select a court</option>
+                    </select><br><br>
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date" required><br><br>
+                    <label for="timeSlot">Time Slot:</label>
+                    <select id="timeSlot" name="timeSlot" required>
+                        <option value="">Select a time slot</option>
+                    </select><br><br>
+                    <label for="duration">Duration (hours):</label>
+                    <input type="number" id="duration" name="duration" min="1" value="1" required><br><br>
+                    <button type="submit">Confirm Booking</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="addListingModal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal()">&times;</span>
+                <h2 style="margin-bottom: 20px">Add Your Court Listing</h2>
+                <form id="listingForm">
+                    <label for="courtName">Court Name:</label>
+                    <input type="text" id="courtName" name="courtName" required><br><br>
+
+                    <label for="sport">Sport:</label>
+                    <select id="sport" name="sport">
+                        <option value="badminton">Badminton</option>
+                        <option value="basketball">Basketball</option>
+                    </select><br><br>
+
+                    <label for="location">Location:</label>
+                    <input type="text" id="location" name="location" required><br><br>
+
+                    <label for="price">Price per Hour (VND):</label>
+                    <input type="number" id="price" name="price" required><br><br>
+
+                    <label for="amenities">Amenities (comma-separated):</label>
+                    <input type="text" id="amenities" name="amenities"><br><br>
+
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="description"></textarea><br><br>
+
+                    <label for="photos">Photos (URLs, comma-separated):</label>
+                    <input type="text" id="photos" name="photos"><br><br>
+
+                    <button type="submit">Submit Listing</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="header-bottom">
+            <div class="container">
+
+                <a href="#" class="logo">
+                    <h1 style="color: black">BadminVerse</h1>
+                </a>
+
+                <nav class="navbar" data-navbar>
+
+                    <div class="navbar-top">
+
+                        <a href="#" class="logo">
+                            <h1 style="color: black">BadminVerse</h1>
+                        </a>
+
+                        <button class="nav-close-btn" data-nav-close-btn aria-label="Close Menu">
+                            <ion-icon name="close-outline"></ion-icon>
+                        </button>
+
+                    </div>
+
+                    <div class="navbar-bottom">
+                        <ul class="navbar-list">
+
+                            <li>
+                                <a href="#home" class="navbar-link" data-nav-link>Home</a>
+                            </li>
+
+                            <li>
+                                <a href="#about" class="navbar-link" data-nav-link>About</a>
+                            </li>
+
+                            <li>
+                                <a href="#service" class="navbar-link" data-nav-link>Services</a>
+                            </li>
+
+                            <li>
+                                <a href="#property" class="navbar-link" data-nav-link>Property</a>
+                            </li>
+
+                            <li>
+                                <a href="#blog" class="navbar-link" data-nav-link>Blog</a>
+                            </li>
+
+                            <li>
+                                <a href="#footer" class="navbar-link" data-nav-link>Contact</a>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </nav>
+
+                <div class="header-bottom-actions">
+
+                    <button class="header-bottom-actions-btn" aria-label="Search">
+                        <ion-icon name="search-outline"></ion-icon>
+
+                        <span>Search</span>
+                    </button>
+
+                    <button class="header-bottom-actions-btn" aria-label="Profile">
+                        <ion-icon name="person-outline"></ion-icon>
+
+                        <span>Profile</span>
+                    </button>
+
+                    <button class="header-bottom-actions-btn" aria-label="Cart">
+                        <ion-icon name="cart-outline"></ion-icon>
+
+                        <span>Cart</span>
+                    </button>
+
+                    <button class="header-bottom-actions-btn" data-nav-open-btn aria-label="Open Menu">
+                        <ion-icon name="menu-outline"></ion-icon>
+
+                        <span>Menu</span>
+                    </button>
+
+                </div>
+
+            </div>
+        </div>
+
+    </header>
+
+    <main>
+        <article>
+            <section class="hero" id="home">
+                <div class="container">
+                    <div class="hero-content">
+                        <p class="hero-subtitle">
+                            <ion-icon name="basketball-outline"></ion-icon>
+
+                            <span>Badminton/Basketball Court Booker</span>
+                        </p>
+
+                        <h2 class="h1 hero-title">Find Your Favorite Badminton & Basketball Courts</h2>
+
+                        <p class="hero-text">
+                            BadminVerse is a platform that helps you find your favorite badminton and basketball courts. You can book a court
+                            at your favorite location and time.
+                        </p>
+
+                        <button class="btn">Make A Booking</button>
+                    </div>
+
+                    <figure class="hero-banner">
+                        <img src="./assets/images/hero-banner.jpeg" alt="Modern house model" class="w-100" style="border-radius: 8px">
+                    </figure>
+
+                </div>
+            </section>
+
+            <section class="about" id="about">
+                <div class="container">
+
+                    <figure class="about-banner">
+                        <img src="./assets/images/about-banner-1.jpg" alt="House interior" style="border-radius: 8px" class="w-100">
+                    </figure>
+
+                    <div class="about-content">
+
+                        <p class="section-subtitle">About Us</p>
+
+                        <h2 class="h2 section-title">The Ultimate Badminton & Basketball Court Booking Platform</h2>
+
+                        <p class="about-text">
+                            BadminVerse is your one-stop shop for finding and booking the perfect badminton or basketball court. Effortlessly discover courts across Vietnam, reserve your spot at your preferred time, and get ready to play!
+                        </p>
+
+                        <ul class="about-list">
+                            <li class="about-item">
+                                <div class="about-item-icon">
+                                    <ion-icon name="location-outline"></ion-icon>
+                                </div>
+                                <p class="about-item-text">Wide Range of Locations</p>
+                            </li>
+
+                            <li class="about-item">
+                                <div class="about-item-icon">
+                                    <ion-icon name="calendar-outline"></ion-icon>
+                                </div>
+                                <p class="about-item-text">Easy Online Booking</p>
+                            </li>
+
+                            <li class="about-item">
+                                <div class="about-item-icon">
+                                    <ion-icon name="people-outline"></ion-icon>
+                                </div>
+                                <p class="about-item-text">Community & Events</p>
+                            </li>
+
+                            <li class="about-item">
+                                <div class="about-item-icon">
+                                    <ion-icon name="notifications-outline"></ion-icon>
+                                </div>
+                                <p class="about-item-text">Booking Reminders</p>
+                            </li>
+                        </ul>
+
+                        <p class="callout">
+                            BadminVerse: Your game, your court, your time.
+                        </p>
+
+                        <a href="#property" class="btn">Find Your Court</a>
+                    </div>
+
+
+                </div>
+            </section>
+
+            <section class="service" id="service">
+                <div class="container">
+
+                    <p class="section-subtitle">Our Services</p>
+
+                    <h2 class="h2 section-title">Our Main Focuses</h2>
+
+                    <ul class="service-list">
+                        <li>
+                            <div class="service-card">
+                                <div class="card-icon">
+                                    <img src="./assets/images/service-1.png" alt="Service icon">
+                                </div>
+
+                                <h3 class="h3 card-title">
+                                    <a href="#">Basketball Court Booking</a>
+                                </h3>
+
+                                <p class="card-text">
+                                    Find the perfect basketball court for your next pickup game or league match.
+                                </p>
+
+                                <a href="#" class="card-link">
+                                    <span>Book Now</span>
+
+                                    <ion-icon name="arrow-forward-outline"></ion-icon>
+                                </a>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="service-card">
+
+                                <div class="card-icon">
+                                    <img src="./assets/images/service-2.png" alt="Service icon">
+                                </div>
+
+                                <h3 class="h3 card-title">
+                                    <a href="#">Badminton Court Booking</a>
+                                </h3>
+
+                                <p class="card-text">
+                                    Discover top-notch badminton facilities for casual play or competitive matches.
+                                </p>
+
+                                <a href="#" class="card-link">
+                                    <span>Book Now</span>
+
+                                    <ion-icon name="arrow-forward-outline"></ion-icon>
+                                </a>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="service-card">
+
+                                <div class="card-icon">
+                                    <img src="./assets/images/service-3.png" alt="Service icon">
+                                </div>
+
+                                <h3 class="h3 card-title">
+                                    <a href="#">Tournaments & Events</a>
+                                </h3>
+
+                                <p class="card-text">
+                                    Participate in or organize exciting tournaments and events through BadminVerse.
+                                </p>
+
+                                <a href="#" class="card-link">
+                                    <span>Book Now</span>
+
+                                    <ion-icon name="arrow-forward-outline"></ion-icon>
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </section>
+
+            <section class="property" id="property">
+                <div class="container">
+
+                    <p class="section-subtitle">Properties</p>
+
+                    <h2 class="h2 section-title">Featured Listings</h2>
+
+                    <ul class="property-list has-scrollbar">
+
+                        <li>
+                            <div class="property-card">
+
+                                <figure class="card-banner">
+
+                                    <a href="#">
+                                        <img src="./assets/images/property-1.jpeg" alt="New Apartment Nice View" class="w-100">
+                                    </a>
+
+                                    <div class="card-badge green">Available</div>
+
+                                    <div class="banner-actions">
+
+                                        <button class="banner-actions-btn">
+                                            <ion-icon name="location"></ion-icon>
+
+                                            <address>District 7, Ho Chi Minh City, Vietnam</address>
+                                        </button>
+
+                                        <button class="banner-actions-btn">
+                                            <ion-icon name="camera"></ion-icon>
+
+                                            <span>4</span>
+                                        </button>
+
+                                        <button class="banner-actions-btn">
+                                            <ion-icon name="film"></ion-icon>
+
+                                            <span>2</span>
+                                        </button>
+
+                                    </div>
+
+                                </figure>
+
+                                <div class="card-content">
+
+                                    <div class="card-price">
+                                        <strong>VND 40,000</strong>/hr
+                                    </div>
+
+                                    <h3 class="h3 card-title">
+                                        <a href="#">New Basketball Court - Forest View</a>
+                                    </h3>
+
+                                    <p class="card-text">
+                                        Great basketball court with a nice view of the forest. Perfect for casual play or competitive matches.
+                                    </p>
+
+                                    <ul class="card-list">
+
+                                        <li class="card-item">
+                                            <ion-icon name="basketball-outline"></ion-icon>
+                                            <span>Basketball Court</span>
+                                        </li>
+
+                                        <li class="card-item">
+                                            <ion-icon name="time-outline"></ion-icon>
+                                            <span>Available Hours: 8AM - 10PM</span>
+                                        </li>
+
+                                        <li class="card-item">
+                                            <ion-icon name="map-outline"></ion-icon>
+                                            <span>District 7, HCMC, VN</span>
+                                        </li>
+
+                                    </ul>
+
+                                </div>
+
+
+                                <div class="card-footer">
+
+                                    <div class="card-author">
+                                        <figure class="author-avatar">
+                                            <img src="./assets/images/author.jpg" alt="BadminVerse Logo" class="w-100">
+                                        </figure>
+
+                                        <div>
+                                            <p class="author-name">
+                                                <a href="#">BadminVerse</a>
+                                            </p>
+
+                                            <p class="author-title">Admin</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-footer-actions">
+
+                                        <button class="card-footer-actions-btn" title="View on Map">
+                                            <ion-icon name="map-outline"></ion-icon>
+                                        </button>
+
+                                        <button class="card-footer-actions-btn" title="Add to Favorites">
+                                            <ion-icon name="heart-outline"></ion-icon>
+                                        </button>
+
+                                        <button class="card-footer-actions-btn" title="Book Now">
+                                            <ion-icon name="calendar-outline"></ion-icon>
+                                        </button>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </li>
+
+                        <li>
+                            <div class="property-card">
+
+                                <figure class="card-banner">
+
+                                    <a href="#">
+                                        <img src="./assets/images/property-2.jpg" alt="Modern Apartments" class="w-100">
+                                    </a>
+
+                                    <div class="card-badge green">Available</div>
+
+                                    <div class="banner-actions">
+                                        <button class="banner-actions-btn">
+                                            <ion-icon name="location"></ion-icon>
+                                            <address>District 2, Ho Chi Minh City</address>
+                                        </button>
+
+                                        <button class="banner-actions-btn">
+                                            <ion-icon name="image-outline"></ion-icon>
+                                            <span>5</span>
+                                        </button>
+                                    </div>
+                                </figure>
+
+                                <div class="card-content">
+                                    <div class="card-price">
+                                        <strong>VND 50,000</strong>/hr
+                                    </div>
+
+                                    <h3 class="h3 card-title">
+                                        <a href="#">Indoor Badminton Court - District 2</a>
+                                    </h3>
+
+                                    <p class="card-text">
+                                        Well-maintained indoor badminton court with synthetic flooring and ample lighting.
+                                    </p>
+
+                                    <ul class="card-list">
+                                        <li class="card-item">
+                                            <ion-icon name="tennisball-outline"></ion-icon>
+                                            <span>4 Courts</span>
+                                        </li>
+
+                                        <li class="card-item">
+                                            <ion-icon name="time-outline"></ion-icon>
+                                            <span>Available Hours: 6AM - 11PM</span>
+                                        </li>
+
+                                        <li class="card-item">
+                                            <ion-icon name="people-outline"></ion-icon>
+                                            <span>Max Players: 8 per court</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="card-footer">
+
+                                    <div class="card-author">
+
+                                        <figure class="author-avatar">
+                                            <img src="./assets/images/author.jpg" alt="William Seklo" class="w-100">
+                                        </figure>
+
+                                        <div>
+                                            <p class="author-name">
+                                                <a href="#">BadminVerse</a>
+                                            </p>
+
+                                            <p class="author-title">Admin</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-footer-actions">
+
+                                        <button class="card-footer-actions-btn">
+                                            <ion-icon name="resize-outline"></ion-icon>
+                                        </button>
+
+                                        <button class="card-footer-actions-btn">
+                                            <ion-icon name="heart-outline"></ion-icon>
+                                        </button>
+
+                                        <button class="card-footer-actions-btn">
+                                            <ion-icon name="add-circle-outline"></ion-icon>
+                                        </button>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="property-card">
+
+                                <figure class="card-banner">
+
+                                    <a href="#">
+                                        <img src="./assets/images/property-3.jpg" alt="Comfortable Apartment" class="w-100">
+                                    </a>
+
+                                    <div class="card-badge green">Available</div>
+
+                                    <div class="banner-actions">
+                                        <button class="banner-actions-btn">
+                                            <ion-icon name="location"></ion-icon>
+                                            <address>District 7, Ho Chi Minh City</address>
+                                        </button>
+
+                                        <button class="banner-actions-btn">
+                                            <ion-icon name="image-outline"></ion-icon>
+                                            <span>6</span>
+                                        </button>
+                                    </div>
+                                </figure>
+
+                                <div class="card-content">
+                                    <div class="card-price">
+                                        <strong>VND 65,000</strong>/hr
+                                    </div>
+
+                                    <h3 class="h3 card-title">
+                                        <a href="#">Multi-Sport Court - District 7</a>
+                                    </h3>
+
+                                    <p class="card-text">
+                                        Versatile indoor court suitable for basketball, volleyball, and badminton. Great for group events and tournaments.
+                                    </p>
+
+                                    <ul class="card-list">
+                                        <li class="card-item">
+                                            <ion-icon name="basketball-outline"></ion-icon>
+                                            <ion-icon name="tennisball-outline"></ion-icon>
+                                            <ion-icon name="football-outline"></ion-icon>
+                                            <span>Multi-Sport</span>
+                                        </li>
+
+                                        <li class="card-item">
+                                            <ion-icon name="time-outline"></ion-icon>
+                                            <span>Available Hours: 7AM - 10PM</span>
+                                        </li>
+
+                                        <li class="card-item">
+                                            <ion-icon name="people-outline"></ion-icon>
+                                            <span>Max Players: 10-12</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="card-footer">
+
+                                    <div class="card-author">
+
+                                        <figure class="author-avatar">
+                                            <img src="./assets/images/author.jpg" alt="William Seklo" class="w-100">
+                                        </figure>
+
+                                        <div>
+                                            <p class="author-name">
+                                                <a href="#">BadminVerse</a>
+                                            </p>
+
+                                            <p class="author-title">Admin</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-footer-actions">
+
+                                        <button class="card-footer-actions-btn">
+                                            <ion-icon name="resize-outline"></ion-icon>
+                                        </button>
+
+                                        <button class="card-footer-actions-btn">
+                                            <ion-icon name="heart-outline"></ion-icon>
+                                        </button>
+
+                                        <button class="card-footer-actions-btn">
+                                            <ion-icon name="add-circle-outline"></ion-icon>
+                                        </button>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="property-card">
+
+                                <figure class="card-banner">
+                                    <a href="#">
+                                        <img src="./assets/images/property-4.jpg" alt="Outdoor Badminton Court" class="w-100">
+                                    </a>
+
+                                    <div class="card-badge green">Available</div>
+
+                                    <div class="banner-actions">
+                                        <button class="banner-actions-btn">
+                                            <ion-icon name="location"></ion-icon>
+                                            <address>District 3, Ho Chi Minh City</address>
+                                        </button>
+
+                                        <button class="banner-actions-btn">
+                                            <ion-icon name="image-outline"></ion-icon>
+                                            <span>8</span>
+                                        </button>
+                                    </div>
+                                </figure>
+
+                                <div class="card-content">
+                                    <div class="card-price">
+                                        <strong>VND 35,000</strong>/hr
+                                    </div>
+
+                                    <h3 class="h3 card-title">
+                                        <a href="#">Outdoor Badminton Courts - Park View</a>
+                                    </h3>
+
+                                    <p class="card-text">
+                                        Two well-maintained outdoor badminton courts located in a peaceful park setting. Ideal for casual play.
+                                    </p>
+
+                                    <ul class="card-list">
+                                        <li class="card-item">
+                                            <ion-icon name="tennisball-outline"></ion-icon>
+                                            <span>2 Courts</span>
+                                        </li>
+
+                                        <li class="card-item">
+                                            <ion-icon name="time-outline"></ion-icon>
+                                            <span>Available Hours: 6AM - 9PM</span>
+                                        </li>
+
+                                        <li class="card-item">
+                                            <ion-icon name="sunny-outline"></ion-icon>
+                                            <span>Outdoor</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="card-footer">
+                                    <div class="card-author">
+                                        <figure class="author-avatar">
+                                            <img src="./assets/images/author.jpg" alt="City Park Authority" class="w-100">
+                                        </figure>
+                                        <div>
+                                            <p class="author-name">
+                                                <a href="#">BadminVerse</a>
+                                            </p>
+
+                                            <p class="author-title">Admin</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-footer-actions">
+                                        <button class="card-footer-actions-btn">
+                                            <ion-icon name="resize-outline"></ion-icon>
+                                        </button>
+                                        <button class="card-footer-actions-btn">
+                                            <ion-icon name="heart-outline"></ion-icon>
+                                        </button>
+                                        <button class="card-footer-actions-btn">
+                                            <ion-icon name="add-circle-outline"></ion-icon>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="features">
+                <div class="container">
+
+                    <p class="section-subtitle">Court Amenities</p>
+
+                    <h2 class="h2 section-title">Enhance Your Experience</h2>
+
+                    <ul class="features-list">
+                        <li>
+                            <a href="#" class="features-card">
+                                <div class="card-icon">
+                                    <ion-icon name="water-outline"></ion-icon>
+                                </div>
+                                <h3 class="card-title">Water Fountains</h3>
+                                <div class="card-btn">
+                                    <ion-icon name="arrow-forward-outline"></ion-icon>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="features-card">
+                                <div class="card-icon">
+                                    <ion-icon name="lock-closed-outline"></ion-icon>
+                                </div>
+                                <h3 class="card-title">Secure Lockers</h3>
+                                <div class="card-btn">
+                                    <ion-icon name="arrow-forward-outline"></ion-icon>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="features-card">
+                                <div class="card-icon">
+                                    <ion-icon name="shirt-outline"></ion-icon>
+                                </div>
+                                <h3 class="card-title">Equipment Rental</h3>
+                                <div class="card-btn">
+                                    <ion-icon name="arrow-forward-outline"></ion-icon>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="features-card">
+                                <div class="card-icon">
+                                    <ion-icon name="cafe-outline"></ion-icon>
+                                </div>
+                                <h3 class="card-title">Café or Snack Bar</h3>
+                                <div class="card-btn">
+                                    <ion-icon name="arrow-forward-outline"></ion-icon>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="features-card">
+                                <div class="card-icon">
+                                    <ion-icon name="water-outline"></ion-icon>
+                                </div>
+                                <h3 class="card-title">Shower Facilities</h3>
+                                <div class="card-btn">
+                                    <ion-icon name="arrow-forward-outline"></ion-icon>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="features-card">
+                                <div class="card-icon">
+                                    <ion-icon name="people-outline"></ion-icon>
+                                </div>
+                                <h3 class="card-title">Social Lounge</h3>
+                                <div class="card-btn">
+                                    <ion-icon name="arrow-forward-outline"></ion-icon>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="blog" id="blog">
+                <div class="container">
+
+                    <p class="section-subtitle">News & Blogs</p>
+
+                    <h2 class="h2 section-title">Latest from the Court</h2>
+
+                    <ul class="blog-list has-scrollbar">
+
+                        <li>
+                            <div class="blog-card">
+
+                                <figure class="card-banner">
+                                    <img src="./assets/images/blog-1.jpg" alt="National Badminton Championship Recap" class="w-100">
+                                </figure>
+
+                                <div class="blog-content">
+                                    <div class="blog-content-top">
+                                        <ul class="card-meta-list">
+                                            <li>
+                                                <a href="#" class="card-meta-link">
+                                                    <ion-icon name="person"></ion-icon>
+                                                    <span>by: BadminVerse Team</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="card-meta-link">
+                                                    <ion-icon name="tennisball-outline"></ion-icon>
+                                                    <span>Badminton</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+
+                                        <h3 class="h3 blog-title">
+                                            <a href="#">National Badminton Championship Recap</a>
+                                        </h3>
+                                    </div>
+
+                                    <div class="blog-content-bottom">
+                                        <div class="publish-date">
+                                            <ion-icon name="calendar"></ion-icon>
+                                            <time datetime="2024-05-15">May 15, 2024</time>
+                                        </div>
+
+                                        <a href="#" class="read-more-btn">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="blog-card">
+                                <figure class="card-banner">
+                                    <img src="./assets/images/blog-2.jpg" alt="Top 5 Basketball Training Tips for Beginners" class="w-100">
+                                </figure>
+
+                                <div class="blog-content">
+                                    <div class="blog-content-top">
+                                        <ul class="card-meta-list">
+                                            <li>
+                                                <a href="#" class="card-meta-link">
+                                                    <ion-icon name="person"></ion-icon>
+                                                    <span>by: Guest Coach</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="card-meta-link">
+                                                    <ion-icon name="basketball-outline"></ion-icon>
+                                                    <span>Basketball</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <h3 class="h3 blog-title">
+                                            <a href="#">Top 5 Basketball Training Tips for Beginners</a>
+                                        </h3>
+                                    </div>
+
+                                    <div class="blog-content-bottom">
+                                        <div class="publish-date">
+                                            <ion-icon name="calendar"></ion-icon>
+                                            <time datetime="2024-04-28">Apr 28, 2024</time>
+                                        </div>
+
+                                        <a href="#" class="read-more-btn">Read More</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="blog-card">
+
+                                <figure class="card-banner">
+                                    <img src="./assets/images/blog-3.webp" alt="Choosing the Right Badminton Equipment: A Guide for Beginners" class="w-100">
+                                </figure>
+
+                                <div class="blog-content">
+
+                                    <div class="blog-content-top">
+
+                                        <ul class="card-meta-list">
+
+                                            <li>
+                                                <a href="#" class="card-meta-link">
+                                                    <ion-icon name="person"></ion-icon>
+                                                    <span>by: BadminVerse Pro</span>
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <a href="#" class="card-meta-link">
+                                                    <ion-icon name="tennisball-outline"></ion-icon>
+                                                    <span>Badminton</span>
+                                                </a>
+                                            </li>
+
+                                        </ul>
+
+                                        <h3 class="h3 blog-title">
+                                            <a href="#">Choosing the Right Badminton Equipment</a>
+                                        </h3>
+
+                                    </div>
+
+                                    <div class="blog-content-bottom">
+                                        <div class="publish-date">
+                                            <ion-icon name="calendar"></ion-icon>
+                                            <time datetime="2024-04-10">Apr 10, 2024</time>
+                                        </div>
+
+                                        <a href="#" class="read-more-btn">Read More</a>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </section>
+
+            <section class="cta">
+                <div class="container">
+
+                    <div class="cta-card">
+                        <div class="card-content">
+                            <h2 class="h2 card-title">Ready to Play?</h2>
+                            <p class="card-text">Find the perfect court and get your game on!</p>
+                        </div>
+
+                        <button class="btn cta-btn" onclick="scrollToPropertySection()">
+                            <span>Find Your Court</span>
+                            <ion-icon name="arrow-forward-outline"></ion-icon>
+                        </button>
+                    </div>
+
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <footer id="footer" class="footer">
+
+        <div class="footer-top">
+            <div class="container">
+
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <h1 style="color: white">BadminVerse</h1>
+                    </a>
+
+                    <p class="section-text">
+                        BadminVerse is your ultimate destination for finding and booking badminton and basketball courts across Vietnam.
+                    </p>
+
+                    <ul class="contact-list">
+                        <li>
+                            <a href="#" class="contact-link">
+                                <ion-icon name="location-outline"></ion-icon>
+                                <address>Ho Chi Minh City, Vietnam</address>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="tel:+84123456789" class="contact-link">
+                                <ion-icon name="call-outline"></ion-icon>
+                                <span>+84 123 456 789</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="mailto:info@badminverse.com" class="contact-link">
+                                <ion-icon name="mail-outline"></ion-icon>
+                                <span>info@badminverse.com</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <ul class="social-list">
+                        <li>
+                            <a href="https://www.facebook.com/" class="social-link">
+                                <ion-icon name="logo-facebook"></ion-icon>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/" class="social-link">
+                                <ion-icon name="logo-instagram"></ion-icon>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/" class="social-link">
+                                <ion-icon name="logo-twitter"></ion-icon>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-link-box">
+
+                    <ul class="footer-list">
+                        <li>
+                            <p class="footer-list-title">Company</p>
+                        </li>
+                        <li>
+                            <a href="#" class="footer-link">About Us</a>
+                        </li>
+                        <li>
+                            <a href="#" class="footer-link">Blog</a>
+                        </li>
+                        <li>
+                            <a href="#" class="footer-link">Partnerships</a>
+                        </li>
+                        <li>
+                            <a href="#" class="footer-link">Careers</a>
+                        </li>
+                    </ul>
+
+                    <ul class="footer-list">
+                        <li>
+                            <p class="footer-list-title">Support</p>
+                        </li>
+                        <li>
+                            <a href="#" class="footer-link">FAQ</a>
+                        </li>
+                        <li>
+                            <a href="#" class="footer-link">Contact Us</a>
+                        </li>
+                        <li>
+                            <a href="#" class="footer-link">Terms of Service</a>
+                        </li>
+                        <li>
+                            <a href="#" class="footer-link">Privacy Policy</a>
+                        </li>
+                    </ul>
+
+                    <ul class="footer-list">
+                        <li>
+                            <p class="footer-list-title">For Players</p>
+                        </li>
+                        <li>
+                            <a href="#property" class="footer-link">Find a Court</a>
+                        </li>
+                        <li>
+                            <a href="#" class="footer-link">Create an Account</a>
+                        </li>
+                        <li>
+                            <a href="#" class="footer-link">Tournaments</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <p class="copyright">
+                    &copy; 2024 BadminVerse. All Rights Reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./assets/js/script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
