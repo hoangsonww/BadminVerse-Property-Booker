@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "New Basketball Court - Forest View",
+    "sport": "basketball",
+    "location": "District 7, Ho Chi Minh City, Vietnam",
+    "price": 40000,
+    "available": true,
+    "hours": "8AM - 10PM",
+    "amenities": ["Water fountain", "Secure lockers", "Equipment rental"],
+    "images": ["assets/images/property-1.jpeg"],
+    "description": "Great basketball court with a nice view of the forest. Perfect for casual play or competitive matches."
+  },
+  {
+    "id": 2,
+    "name": "Indoor Badminton Court - District 2",
+    "sport": "badminton",
+    "location": "District 2, Ho Chi Minh City, Vietnam",
+    "price": 50000,
+    "available": true,
+    "hours": "6AM - 11PM",
+    "amenities": ["Air conditioning", "Shower facilities", "Café"],
+    "images": ["assets/images/property-2.jpg"],
+    "description": "Well-maintained indoor badminton court with synthetic flooring and ample lighting."
+  },
+  {
+    "id": 3,
+    "name": "Multi-Sport Court - District 7",
+    "sport": "multi-sport",
+    "location": "District 7, Ho Chi Minh City, Vietnam",
+    "price": 65000,
+    "available": false,
+    "hours": "7AM - 10PM",
+    "amenities": ["Basketball hoops", "Volleyball net", "Badminton nets", "Social lounge"],
+    "images": ["assets/images/property-3.jpg"],
+    "description": "Versatile indoor court suitable for basketball, volleyball, and badminton. Great for group events and tournaments."
+  },
+  {
+    "id": 4,
+    "name": "Outdoor Badminton Courts - Park View",
+    "sport": "badminton",
+    "location": "District 3, Ho Chi Minh City, Vietnam",
+    "price": 35000,
+    "available": true,
+    "hours": "6AM - 9PM",
+    "amenities": ["Benches", "Shade", "Nearby restrooms"],
+    "images": ["assets/images/property-4.jpg"],
+    "description": "Two well-maintained outdoor badminton courts located in a peaceful park setting. Ideal for casual play."
+  }
+]

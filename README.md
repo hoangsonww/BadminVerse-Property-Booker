@@ -2,7 +2,7 @@
 
 **Project Overview**
 
-BadminVerse is a user-friendly web platform designed to simplify the process of finding and booking badminton and basketball courts across Vietnam. The platform features a visually appealing design, easy navigation, and convenient booking functionality.
+BadminVerse is a simple, lightweight, and user-friendly web platform designed to simplify the process of finding and booking badminton and basketball courts across Vietnam. The platform features a visually appealing design, easy navigation, and convenient booking functionality.
 
 **Key Features**
 
@@ -39,7 +39,7 @@ BadminVerse/
 
 **How to Use**
 
-1.  **Clone the repository:** `git clone https://your-repository-url.git` (NOT AVAILABLE YET).
+1.  **Clone the repository:** `git clone https://github.com/hoangsonww/BadminVerse-Property-Booker.git`.
 2.  **Open `index.html`:** View the webpage in your preferred web browser.
 3.  **Explore:** Browse featured court listings, read news/blog articles.
 4.  **Booking:** (Placeholder Functionality) Click on "Make A Booking" or "Book Now" buttons to initiate the court reservation process.
@@ -59,9 +59,12 @@ BadminVerse/
 *   **Interactive Map:** Integrate a map to visualize court locations.
 *   **Mobile App:** Create a mobile app version for on-the-go booking.
 
-
 **Contributing**
 
 Feel free to fork the repository and submit pull requests if you'd like to contribute to the development of BadminVerse.
 
 Let me know if you have any other questions.
+
+--- 
+
+Thank you for considering my project. I hope you find it interesting and engaging. If you have any questions or need further information, please feel free to reach out! 
